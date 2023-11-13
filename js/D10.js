@@ -158,33 +158,12 @@ let dotInd=mail.indexOf('.')
   }
 }
 
-/* console.log(isThisAnEmail('user@mail.com')) // indrizzo valido
+console.log(isThisAnEmail('user@mail.com')) // indrizzo valido
 console.log(isThisAnEmail('usermail.com')) //manca la chioccila (atInd =-1 se è assente nella stringa)
 console.log(isThisAnEmail('user@mailcom')) // manca il punto (atDot =-1, la differenza degli indici non può mai essere maggiore di 1)
 console.log(isThisAnEmail('@mail.com')) // manca lo username
 console.log(isThisAnEmail('user@mail.')) // nel dominio manca la parte dopo il punto
 console.log(isThisAnEmail('user@.com')) //nel dominio manca la parte prima del punto
- */
-
-
-
-
-
-/* let mailsplit= mail.split('@')
-console.log(mailsplit)
-let user = mailsplit[0]
-console.log(user)
-let domain= mailsplit[1].split('.')
-console.log(domain)
-if(typeof user == 'string' && typeof domain[0] == 'string' && typeof domain[1] == 'string' ) {
-  return true
-} else {
-  return false
-}
- */
-  
-
-
 
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
@@ -494,7 +473,6 @@ function searchAndDivide(title){
     }
   })
   return result
-
 }
 /* console.log(searchAndDivide('Ring'))
 console.log(searchAndDivide('Aven')) */
@@ -610,8 +588,8 @@ function halfTree(n) {
     console.log(str)
   }
 }
-halfTree(3)
-halfTree(6) 
+/* halfTree(3)
+halfTree(6) */ 
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -626,41 +604,40 @@ halfTree(6)
 */
 
 function tree(n) {
-  for(i=0; i<=n; i++) {
+  for(i=1; i<=n; i++) {
     let str =''
-    for(a=1; a<=n-1; a++) {
+    for(a=1; a<=n-i; a++) {
       str+=' '
     }
-    let e=0
-    for(b=1; b<i+e; b++) {
+    for(b=0; b<i+(i-1); b++) {
       str+= '*'
-      e= e+2;
     }
-    for(c=0; c<n-1; c++) {
-      str+='_'
-    }  
-  console.log(str)
-
+    for(a=1; a<=n-i; a++) {
+      str+=' '
+    }
+    console.log(str)
   }
 }
-
+/* tree(5)
+tree(7)*/
 
 
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
 
-/* function isItPrime(n) {
+function isItPrime(n) {
+  let resti=[]
+  let maxDiv=Math.ceil(n**(1/2))
   if(n === 1) {
     return false
   }
-  console.log(Math.ceil((n**(1/2))))
-  for (let i=2; i<=Math.ceil(n**(1/2)); i++) {
-    if(n%i == 0) {
-      console.log (i) 
-    } 
-    
+  for (let i=2; i<=maxDiv; i++) {
+    resti.push(n%i)  
   }
+  return resti.every(n => n!=0)
 }
-
-console.log(isItPrime(9)) */
+/* console.log(isItPrime(17))
+console.log(isItPrime(11))
+console.log(isItPrime(49))
+console.log(isItPrime(18)) */
